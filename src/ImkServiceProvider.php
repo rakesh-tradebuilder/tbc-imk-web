@@ -48,6 +48,11 @@ class ImkServiceProvider {
         return $this;
     }
 
+    function setApiImkKey($imkkey) {
+        $this->imk_key = $imkkey;
+        return $this;
+    }
+
     function setApiGoogleKey($key) {
         $this->google_key = $key;
         return $this;
@@ -165,6 +170,14 @@ class ImkServiceProvider {
         return $this->client->request(
                         'post', "api/readMembers", ['form_params' => $data], ['withSuccess' => true]
         );
+    }
+    function getusergroups() {
+        $fp = $this->client->request('GET', "api/v1/user-groups/?apiKey=".$this->$imk_key);
+        if (isset($fp)) {
+            return $fp;
+        } else {
+            return [];
+        }
     }
 
     function singleAgent($aId) {

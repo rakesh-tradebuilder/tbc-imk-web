@@ -9,6 +9,7 @@ class ImkServiceProvider {
 
     private $api_url;
     private $api_key;
+    private $imk_key;
     private $api_user;
     private $api_group;
     private $client;
@@ -108,6 +109,7 @@ class ImkServiceProvider {
     }
 
     function getBlogs($params = []) {
+
         $queryStr = '';
         if (count($params)) {
             $queryStr = "?" . http_build_query($params);

@@ -172,7 +172,7 @@ class ImkServiceProvider {
         );
     }
     function getusergroups() {
-        $fp = $this->client->request('GET', "api/v1/user-groups/?apiKey=".$this->$imk_key);
+        $fp = $this->client->request('GET', "api/v1/user-groups/?apiKey=".$this->imk_key);
         if (isset($fp)) {
             return $fp;
         } else {
